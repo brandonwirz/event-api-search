@@ -1,35 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="description" content="Find local music events in your city">
-  <title>Find a local event</title>
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
-  <link rel="stylesheet" type="text/css" href="app.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Find local music events in your city">
+    <title>Find a local event</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="app.css">
 </head>
 <body>
+    <!-- <div class="loader"></div> -->
     <div class="container">
-      <header>
-        <div class="banner hidden">
+        <header role="banner">
+          <div class="banner hidden">
+              <div class="branding">Find events</div>
+              <button type="button" class="new-search-button js-new-search-button">New Search</button>
+          </div>
+        </header>
+        <div class="main">
+            <h1>Event Finder</h1>
+            <section role="region" class="search-section">
+                <h2>Find Events Happening in your city!</h2>
+                <form action="#" class="search-form">
+                    <label for="query">Search by city, state or events </label>
+                    <br>
+                    <input type="text" id="city" class="input-query"  placeholder="Search by city or state" required>
+                    <br>
+                    <button type="submit" class="search-button search-button">Search Events</button>
+                </form>
+            </section>
         </div>
-      </header>
-      <div class="">
-        <h1>Event Finder</h1>
-        <section class="search-section">
-            <h1>Find Events Happening in your city!</h1>
-            <form action="#" class="search-form">
-
-            </form>
+        <div class="display-results-container">
+          <div id="map"></div>
+          <section role="region" class="search-results hidden">
+        </div>
         </section>
-      </div>
-      <div id="map"></div>
-        <section class="search-results hidden">
-        </section>
-      </div>
-
-      <script type="text/javascript" src="app.js"></script>
-</body>
-
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLb6xKPTJKbyDL3rA0YGKvOPELsdkvsto&callback=initMap" async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>
