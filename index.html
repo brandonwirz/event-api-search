@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="app.css">
 </head>
 <body>
-    <!-- <div class="loader"></div> -->
+    <div class="pre-loader"></div>
     <div class="container">
         <header role="banner">
           <div class="banner hidden">
@@ -22,20 +22,21 @@
             <section role="region" class="search-section">
                 <h2>Find Events Happening in your city!</h2>
                 <form action="#" class="search-form">
-                    <label for="query">Search by city, state or events </label>
+                    <!-- <label for="query">Search by city, state or events </label> -->
                     <br>
-                    <input type="text" id="city" class="input-query"  placeholder="Search by city or state" required>
+                    <input type="text" id="city-search" class="input-query"  placeholder="Search by city or state" required>
                     <br>
                     <button type="submit" class="search-button search-button">Search Events</button>
                 </form>
             </section>
         </div>
-        <div class="display-results-container">
+        <!-- <div class="display-results-container"> -->
           <div id="map"></div>
           <section role="region" class="search-results hidden">
-        </div>
+        <!-- </div> -->
         </section>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLb6xKPTJKbyDL3rA0YGKvOPELsdkvsto&callback=initMap" async defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="app.js"></script>
