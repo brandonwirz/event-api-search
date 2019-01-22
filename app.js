@@ -1,6 +1,6 @@
 let map;
 const API_URL = "https://api.eventful.com/json/events/search";
-const API_KEY = "";
+const API_KEY = "C9bx5dgQqBb7RZsr";
 
 function initMap() {
     const latlng = new google.maps.LatLng(40.014984, -105.270546);
@@ -58,7 +58,7 @@ function getApiData() {
 //foramt and convert the time from 24hr to 12/ display date
 //'MMMM Do YYYY, h:mm:ss a');
 function timeConverter(time) {
-  return moment(time).format('MMMM Do YYYY, h:mm pm');
+  return moment(time).format('MMMM Do YYYY, h:mm p');
 }
 
 //Build Output
@@ -66,7 +66,7 @@ function showResults(item) {
     let eventID = item.id;
     let title = item.title;
     let eventURL = item.url;
-    let urlImage = item.image ? item.image.medium.url : '';//images
+    let urlImage = item.image ? item.image.medium.url : '';
     // let urlImage = item.image.medium.url;
     let description = item.description;
     let eventStart = timeConverter(item.start_time);
@@ -199,6 +199,7 @@ function showMap() {
         $('#map').show();
     });
 }
+
 
 $('document').ready(function() {
     $(window).load(function() {

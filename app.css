@@ -215,6 +215,20 @@ input[type="text"] {
     display: none;
 }
 
+@media print {
+    .gm-style .gmnoprint,
+    .gmnoprint {
+        display: none
+    }
+}
+
+@media screen {
+    .gm-style .gmnoscreen,
+    .gmnoscreen {
+        display: none
+    }
+}
+
 .pre-loader {
     position: fixed;
     left: 0px;
