@@ -28,7 +28,7 @@ function getApiData() {
             app_key: API_KEY,
             q: "music",
             l: location,
-            t: "Today",
+            t: "Next 30 Days",
             //page_size: 60,
             sort_order: "popularity",
             c: "music, concerts, blues, jazz, nightlife"
@@ -58,7 +58,7 @@ function getApiData() {
 //foramt and convert the time from 24hr to 12/ display date
 //'MMMM Do YYYY, h:mm:ss a');
 function timeConverter(time) {
-  return moment(time).format('MMMM Do YYYY, h:mm p');
+  return moment(time).format('MMMM Do YYYY, h:mm');
 }
 
 //Build Output
@@ -178,19 +178,19 @@ function initializeMap(data) {
 // Show/Hide Search Form
 function eventSearchToggle() {
     $('.search-button').on('click', function() {
-      $('.display-results-container').show(0);
-        $('.search-results').show(0);
+      $('.display-results-container').show();
+        $('.search-results').show();
         $('.search-section').hide();
-        $('.banner').show(0);
-        $('.new-search-button').show(0);
-        $('.logo').show(0);
-        $('.main').hide(0);
+        $('.banner').show();
+        $('.new-search-button').show();
+        $('.logo').show();
+        $('.main').hide();
     });
-    $('.js-new-search-button').on('click', function() {
-        $('.display-results-container').hide(0);
-        $('.new-search-button').hide(0);
-        $('.search-section').show(0);
-        $('.main').show(0);
+    $('.new-search-button-2').on('click', function() {
+        $('.display-results-container').hide();
+        $('.new-search-button').hide();
+        $('.search-section').show();
+        $('.main').show();
     });
 }
 

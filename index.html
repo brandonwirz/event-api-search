@@ -14,12 +14,13 @@
         <header role="banner">
           <div class="banner hidden">
               <div class="branding">Find events</div>
-              <button type="button" class="new-search-button js-new-search-button">New Search</button>
+              <button type="button" class="new-search-button new-search-button-2">New Search</button>
           </div>
         </header>
         <div class="main">
             <h1>Event Finder</h1>
             <section role="region" class="search-section">
+                <img src="images/logo.jpg" alt="music logo">
                 <h2>Find Events Happening in your city!</h2>
                 <form action="#" class="search-form">
                     <!-- <label for="query">Search by city, state or events </label> -->
@@ -29,14 +30,16 @@
                     <button type="submit" class="search-button search-button">Search Events</button>
                 </form>
             </section>
+            <footer>Powered by Eventful and Goople Maps APIs</footer>
         </div>
+
         <!-- <div class="display-results-container"> -->
-          <div id="map"></div>
-          <section role="region" class="search-results hidden">
+        <div id="map"></div>
+        <section role="region" class="search-results hidden">
         <!-- </div> -->
         </section>
     </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLb6xKPTJKbyDL3rA0YGKvOPELsdkvsto&callback=initMap" async defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="app.js"></script>
