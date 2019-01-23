@@ -6,6 +6,7 @@
     <meta name="description" content="Find local music events in your city">
     <title>Find a local event</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="app.css">
 </head>
 <body>
@@ -20,12 +21,13 @@
         <div class="main">
             <h1>Event Finder</h1>
             <section role="region" class="search-section">
-                <img src="images/logo.jpg" alt="music logo">
+                <img class="logo" src="images/logo.jpg" alt="music logo">
                 <h2>Find Events Happening in your city!</h2>
                 <form action="#" class="search-form">
                     <!-- <label for="query">Search by city, state or events </label> -->
                     <br>
-                    <input type="text" id="city-search" class="input-query"  placeholder="Search by city or state" required>
+                    <span class="fa fa-search"></span>
+                    <input type="text" id="city-search" class="input-query" placeholder="Search by city or state" required/>
                     <br>
                     <button type="submit" class="search-button search-button">Search Events</button>
                 </form>

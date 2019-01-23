@@ -13,47 +13,48 @@ function initMap() {
 
 // Get Data From Eventful API
 function getApiData() {
-    $(".pre-loader").show();
-    // Clear Results
-    $('.search-results').html('');
-    $('#map').html('');
+  $(".pre-loader").show();
+  // // Clear Results
+  // $('.search-results').html('');
+  // $('#map').html('');
 
-    // Get Form Input
-    const location = $('#city-search').val();
-    // Run GET Request on API
-    $.ajax({
-        url: API_URL,
-        type: "GET",
-        data: {
-            app_key: API_KEY,
-            q: "music",
-            l: location,
-            t: "Next 30 Days",
-            //page_size: 60,
-            sort_order: "popularity",
-            c: "music, concerts, blues, jazz, nightlife"
-        },
-        crossDomain: true,
-        dataType: 'jsonp'
-    }).then(function(data) {
-        $(".pre-loader").hide("fast");
+  // Get Form Input
+  const location = $('#city-search').val();
+    if (location.length === 0 ) {
+         alert("Please enter a location to search for events");
+         // return false
+    } else {
 
-        initializeMap(data);
-
-            for (let i = 0; i < data.events.event.length; i++) {
-            // Get Output
-            const output = showResults(data.events.event[i]);
-            // Display Results
-            $('.search-results').append(output);
-
-            // if($('.search-results').empty)
-            // }
-            // if($('.search-results').val().length === 0 ) {
-            //   alert("please enter a location")
+      // Run GET Request on API
+      $.ajax({
+          url: API_URL,
+          type: "GET",
+          data: {
+              app_key: API_KEY,
+              q: "music",
+              l: location,
+              t: "Next 30 Days",
+              //page_size: 60,
+              sort_order: "relevance",
+              c: "music, concerts, blues, jazz, nightlife" //catagories
+          },
+          crossDomain: true,
+          dataType: 'jsonp'
+       }).then(function(data) {
+            $(".pre-loader").hide("fast");
+            $('.main').hide("fast");
+            initializeMap(data);
+                for (let i = 0; i < data.events.event.length; i++) {
+                // Get Output
+                const output = showResults(data.events.event[i]);
+                // Display Results
+                $('.search-results').append(output);
+                // if($('.search-results').empty)
+                // }
             }
         });
-    //})
-}
+    }
+  }
 
 //foramt and convert the time from 24hr to 12/ display date
 //'MMMM Do YYYY, h:mm:ss a');
@@ -177,21 +178,30 @@ function initializeMap(data) {
 
 // Show/Hide Search Form
 function eventSearchToggle() {
-    $('.search-button').on('click', function() {
-      $('.display-results-container').show();
-        $('.search-results').show();
-        $('.search-section').hide();
-        $('.banner').show();
-        $('.new-search-button').show();
-        $('.logo').show();
-        $('.main').hide();
-    });
-    $('.new-search-button-2').on('click', function() {
-        $('.display-results-container').hide();
-        $('.new-search-button').hide();
-        $('.search-section').show();
-        $('.main').show();
-    });
+  console.log(eventSearchToggle)
+
+      $('.search-button').on('click', function() {
+        // if ($('.search-results').val().length === 0 ) {
+        //      alert("Please enter a location");
+        //  } else {
+        $('.display-results-container').show();
+          $('.search-results').show();
+          $('.search-section').hide("fast", "swing");
+          $('.banner').show();
+          // $('footer').hide();
+          // $('h1').hide();
+          $('.banner').show();
+          $('.new-search-button').show();
+          $('.logo').show();
+          // $('.main').hide();
+      });
+      $('.new-search-button-2').on('click', function() {
+          $('.display-results-container').hide();
+          $('.new-search-button').hide();
+          $('.search-section').show();
+          $('.main').show();
+      });
+   //}
 }
 
 function showMap() {
@@ -202,9 +212,9 @@ function showMap() {
 
 
 $('document').ready(function() {
-    $(window).load(function() {
+    // $(window).load(function() {
         $(".pre-loader").fadeOut("slow");
-    })
+    // })
     $('.search-button').on('click', function(e) {
         e.preventDefault();
         getApiData();
