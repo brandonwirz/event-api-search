@@ -34,7 +34,7 @@ function getApiData() {
               q: "music",
               l: location,
               t: "Next 30 Days",
-              //page_size: 60,
+              page_size: 30,
               sort_order: "relevance",
               c: "music, concerts, blues, jazz, nightlife" //catagories
           },
