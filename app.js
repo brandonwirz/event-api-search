@@ -13,10 +13,19 @@ function initMap() {
 
 // Get Data From Eventful API
 function getApiData() {
+<<<<<<< HEAD
+=======
+  $(".pre-loader").show();
+  // // Clear Results
+  // $('.search-results').html('');
+  // $('#map').html('');
+
+>>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
   // Get Form Input
   const location = $('#city-search').val();
     if (location.length === 0 ) {
          alert("Please enter a location to search for events");
+<<<<<<< HEAD
          return false
     } else {
       $(".pre-loader").show();
@@ -33,6 +42,12 @@ function getApiData() {
       $('.new-search-button').show();
       $('.logo').show();
       // GET Request for API
+=======
+         // return false
+    } else {
+
+      // Run GET Request on API
+>>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
       $.ajax({
           url: API_URL,
           type: "GET",
@@ -40,9 +55,15 @@ function getApiData() {
               app_key: API_KEY,
               q: "music",
               l: location,
+<<<<<<< HEAD
               t: "Today",
               page_size: 30,
               sort_order: "popularity",
+=======
+              t: "Next 30 Days",
+              page_size: 30,
+              sort_order: "relevance",
+>>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
               c: "music, concerts, blues, jazz, nightlife" //catagories
           },
           crossDomain: true,
@@ -60,7 +81,11 @@ function getApiData() {
                 // }
             }
         });
+<<<<<<< HEAD
     }//end if statement
+=======
+    }
+>>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
   }
 
 //foramt and convert the time from 24hr to 12/ display date
@@ -185,12 +210,29 @@ function initializeMap(data) {
 
 // Show/Hide Search Form
 function eventSearchToggle() {
+<<<<<<< HEAD
   // console.log(eventSearchToggle)
+=======
+  console.log(eventSearchToggle)
+
+>>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
       $('.search-button').on('click', function() {
         // if ($('.search-results').val().length === 0 ) {
         //      alert("Please enter a location");
         //  } else {
+<<<<<<< HEAD
 
+=======
+        $('.display-results-container').show();
+          $('.search-results').show();
+          $('.search-section').hide("fast", "swing");
+          $('.banner').show();
+          // $('footer').hide();
+          // $('h1').hide();
+          $('.banner').show();
+          $('.new-search-button').show();
+          $('.logo').show();
+>>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
           // $('.main').hide();
       });
       $('.new-search-button-2').on('click', function() {
@@ -208,10 +250,18 @@ function showMap() {
     });
 }
 
+<<<<<<< HEAD
 $('document').ready(function() {
     $(window).load(function() {
         $(".pre-loader").fadeOut("slow");
     })
+=======
+
+$('document').ready(function() {
+    // $(window).load(function() {
+        $(".pre-loader").fadeOut("slow");
+    // })
+>>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
     $('.search-button').on('click', function(e) {
         e.preventDefault();
         getApiData();

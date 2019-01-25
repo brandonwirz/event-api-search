@@ -85,6 +85,7 @@
 
 
 /* Mobile, grid */
+<<<<<<< HEAD
 @media only screen and (max-width: 640px) {
      /* .search-results {
         width: 100%;
@@ -92,4 +93,10 @@
      #map {
         display:none;
     } */
+=======
+@media only screen and (max-width: 40em) {
+    .search-results {
+        width: 100%;
+    }
+>>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
 }

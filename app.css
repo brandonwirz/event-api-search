@@ -6,14 +6,21 @@
 }
 
 html, body {
+<<<<<<< HEAD
   /* height: 100%; */
   min-height:100vh;
+=======
+  height: 100%;
+>>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
   margin: 0;
   padding: 0;
 }
 
 body {
+<<<<<<< HEAD
   padding-top: 0;
+=======
+>>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
   text-align: center;
   font-family: 'Julius Sans One', sans-serif;
 }
@@ -34,7 +41,10 @@ header {
   width: 100%;
   background: url('images/guitar-background.jpg') no-repeat center fixed;
   background-size: cover;
+<<<<<<< HEAD
   margin: 0 auto;
+=======
+>>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
   border-bottom: 3px solid gray;
 }
 
@@ -74,7 +84,11 @@ header {
   margin: 0 auto;
   position: absolute;
   z-index: 1;
+<<<<<<< HEAD
   height: 120%;
+=======
+  height: 100%;
+>>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
   width: 100%;
   /* padding-top: 0px;
     margin-top: 0px; */
@@ -95,15 +109,27 @@ h1 {
 
 #map {
   position: absolute;
+<<<<<<< HEAD
   z-index: 0;
   top:50px;
   left:0;
+=======
+  margin-top: 50px;
+  z-index: 0;
+  width: 100%;
+  height: 40%;
+  display: none;
+>>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
   width: 67%;
   height: 100%;
 }
 
 .search-section {
+<<<<<<< HEAD
   position: relative;
+=======
+  /* position: relative; */
+>>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
   display: inline-block;
   z-index: 1;
   width: 325px;
@@ -190,10 +216,17 @@ input[type="text"] {
 
 .search-button:active {}
 
+<<<<<<< HEAD
 .search-button:active,
 .new-search-button:active {
     transform: translateY(1px);
 }
+=======
+/* .search-button:active,
+.new-search-button:active {
+    transform: translateY(1px);
+} */
+>>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
 .search-results {
   font-family: 'Lato', sans-serif;
   position: relative;
@@ -216,7 +249,11 @@ input[type="text"] {
   list-style: none;
   text-align: left;
   line-height: 22px;
+<<<<<<< HEAD
   /* overflow: auto; */
+=======
+  overflow: auto;
+>>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
 }
 
 .thumbnail-40 {
@@ -227,6 +264,10 @@ input[type="text"] {
 
 .thumbnail-40 img {
   width: 100%;
+<<<<<<< HEAD
+=======
+  height: 40px;
+>>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
   padding: 3px;
   border: 1px #ccc solid;
 }
@@ -267,6 +308,7 @@ footer {
   line-height: 20px;
 }
 
+<<<<<<< HEAD
 @media only screen and (orientation: landscape) {
   .main {
     height: 170%;
@@ -274,24 +316,43 @@ footer {
 }
 
 @media only screen and (max-width:640px) {
+=======
+@media only screen and (max-width: 40em) {
+  /* h1 {
+    font-size: 3.3rem;
+  }
+
+  .logo {
+    width: 60%;
+  } */
+>>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
 
   .new-search-button {
     margin-right: 10px;
   }
 
   #map {
+<<<<<<< HEAD
     display: none;
     padding-top: 0px;
     margin-top: 0;
     z-index: 1;
     width: 100%;
     height: 30%;
+=======
+    padding-top: 0px;
+    margin-top: 0;
+    z-index: -1;
+    width: 100%;
+    height: 40%;
+>>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
     position: static;
   }
 
   .search-results {
     width: 100%;
     height: 100%;
+<<<<<<< HEAD
     /* display: none; */
     margin-top: 0;
     position: static;
@@ -299,5 +360,10 @@ footer {
   }
   .search-results li {
     margin-top: 50px;
+=======
+    display: none;
+    margin-top: 0;
+    position: static;
+>>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
   }
 }
