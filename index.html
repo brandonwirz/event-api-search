@@ -7,14 +7,13 @@
     <title>Find a local event</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <!-- <link rel="stylesheet" href="float-grid.css"> -->
     <link rel="stylesheet" href="app.css">
 </head>
 <body>
     <div class="pre-loader"></div>
     <div class="container">
-        <header role="banner">
-          <div class="banner hidden">
+        <header role="top-banner">
+          <div class="top-banner hidden">
               <div class="branding">Find events</div>
               <button type="button" class="new-search-button new-search-button-2">Search</button>
           </div>
@@ -36,16 +35,15 @@
             </section>
             <footer>Powered by Eventful and Google Map APIs</footer>
         </div>
-
-        <!-- <div class="display-results-container"> -->
         <div id="map"></div>
         <section role="region" class="search-results hidden">
-        <!-- </div> -->
         </section>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLb6xKPTJKbyDL3rA0YGKvOPELsdkvsto&callback=initMap" async defer></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="app.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js"></script>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+      <script src="app.js"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLb6xKPTJKbyDL3rA0YGKvOPELsdkvsto&callback=initMap" async defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.19.0/babel.js"></script>
   </body>
 </html>

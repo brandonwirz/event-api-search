@@ -11,43 +11,31 @@ function initMap() {
     map = new google.maps.Map(document.getElementById('map'), mapOptions);
 }
 
+//show search results
+function eventSearch() {
+  // $('.search-button').on('click', function() {
+    $('.search-results').html(''); // Clear Results
+    $('#map').html('');
+    $('.display-results-container').show();
+    $('.search-results').show();
+    $('.search-section').hide("fast", "swing");
+    $('.top-banner').show();
+    $('.new-search-button').show();
+    $('.logo').show();
+  // });
+}
 // Get Data From Eventful API
 function getApiData() {
-<<<<<<< HEAD
-=======
-  $(".pre-loader").show();
-  // // Clear Results
-  // $('.search-results').html('');
-  // $('#map').html('');
-
->>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
   // Get Form Input
   const location = $('#city-search').val();
     if (location.length === 0 ) {
          alert("Please enter a location to search for events");
-<<<<<<< HEAD
          return false
     } else {
       $(".pre-loader").show();
-      // // Clear Results
-      $('.search-results').html('');
-      $('#map').html('');
-      $('.display-results-container').show();
-      $('.search-results').show();
-      $('.search-section').hide("fast", "swing");
-      $('.banner').show();
-      // $('footer').hide();
-      // $('h1').hide();
-      $('.banner').show();
-      $('.new-search-button').show();
-      $('.logo').show();
+      //search results
+      eventSearch()
       // GET Request for API
-=======
-         // return false
-    } else {
-
-      // Run GET Request on API
->>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
       $.ajax({
           url: API_URL,
           type: "GET",
@@ -55,16 +43,10 @@ function getApiData() {
               app_key: API_KEY,
               q: "music",
               l: location,
-<<<<<<< HEAD
               t: "Today",
               page_size: 30,
               sort_order: "popularity",
-=======
-              t: "Next 30 Days",
-              page_size: 30,
-              sort_order: "relevance",
->>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
-              c: "music, concerts, blues, jazz, nightlife" //catagories
+              c: "music, concerts, nightlife" //categories
           },
           crossDomain: true,
           dataType: 'jsonp'
@@ -81,14 +63,10 @@ function getApiData() {
                 // }
             }
         });
-<<<<<<< HEAD
     }//end if statement
-=======
-    }
->>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
   }
 
-//foramt and convert the time from 24hr to 12/ display date
+//format and convert time from 24hr to 12/ display date
 //'MMMM Do YYYY, h:mm:ss a');
 function timeConverter(time) {
   return moment(time).format('MMMM Do YYYY, h:mm');
@@ -125,7 +103,7 @@ function showResults(item) {
             <strong>Address</strong>
             <a href="http://maps.google.com/?q=${venueAddress}" target="_blank">${venueAddress}</a>
             <br>
-            <strong>Date/time: </strong>
+            <strong>Date/Time: </strong>
             ${eventStart}
           </p>
         </div>
@@ -148,7 +126,6 @@ function displayMapMarkers(data) {
         let latlng = new google.maps.LatLng(markersData[i].latitude, markersData[i].longitude);
         let title = markersData[i].title;
         let venueAddress = markersData[i].venue_address + ", " + markersData[i].city_name + " " + markersData[i].region_abbr;
-
         newMarker(latlng, title, venueName, venueAddress, postalCode, description, venueURL);
 
         bounds.extend(latlng);
@@ -210,38 +187,13 @@ function initializeMap(data) {
 
 // Show/Hide Search Form
 function eventSearchToggle() {
-<<<<<<< HEAD
-  // console.log(eventSearchToggle)
-=======
-  console.log(eventSearchToggle)
-
->>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
-      $('.search-button').on('click', function() {
-        // if ($('.search-results').val().length === 0 ) {
-        //      alert("Please enter a location");
-        //  } else {
-<<<<<<< HEAD
-
-=======
-        $('.display-results-container').show();
-          $('.search-results').show();
-          $('.search-section').hide("fast", "swing");
-          $('.banner').show();
-          // $('footer').hide();
-          // $('h1').hide();
-          $('.banner').show();
-          $('.new-search-button').show();
-          $('.logo').show();
->>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
-          // $('.main').hide();
-      });
-      $('.new-search-button-2').on('click', function() {
-          $('.display-results-container').hide();
-          $('.new-search-button').hide();
-          $('.search-section').show();
-          $('.main').show();
-      });
-   //}
+    // console.log(eventSearchToggle)
+    $('.new-search-button-2').on('click', function() {
+        $('.display-results-container').hide();
+        $('.new-search-button').hide();
+        $('.search-section').show();
+        $('.main').show();
+    });
 }
 
 function showMap() {
@@ -250,18 +202,10 @@ function showMap() {
     });
 }
 
-<<<<<<< HEAD
 $('document').ready(function() {
     $(window).load(function() {
         $(".pre-loader").fadeOut("slow");
     })
-=======
-
-$('document').ready(function() {
-    // $(window).load(function() {
-        $(".pre-loader").fadeOut("slow");
-    // })
->>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
     $('.search-button').on('click', function(e) {
         e.preventDefault();
         getApiData();

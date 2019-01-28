@@ -6,21 +6,13 @@
 }
 
 html, body {
-<<<<<<< HEAD
-  /* height: 100%; */
-  min-height:100vh;
-=======
   height: 100%;
->>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
   margin: 0;
   padding: 0;
 }
 
 body {
-<<<<<<< HEAD
   padding-top: 0;
-=======
->>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
   text-align: center;
   font-family: 'Julius Sans One', sans-serif;
 }
@@ -34,18 +26,24 @@ header {
   border-bottom: 1px solid gray;
 }
 
-.banner {
+li p a:link{
+  color: #db1d0f;
+}
+li p a:visited, li p a:active {
+  color: #334c9d;
+}
+li p a:hover {
+    color: #5976d5;
+}
+
+.top-banner {
   position: absolute;
   z-index: 1;
   height: 50px;
   width: 100%;
   background: url('images/guitar-background.jpg') no-repeat center fixed;
   background-size: cover;
-<<<<<<< HEAD
   margin: 0 auto;
-=======
->>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
-  border-bottom: 3px solid gray;
 }
 
 .branding {
@@ -65,11 +63,10 @@ header {
 
 .new-search-button {
   float: right;
-  margin-right: 305px;
+  margin-right: 25px;
   margin-top: 6px;
   height: 77%;
   background-color: white;
-  font-family: 'Roboto', sans-serif;
   border-radius: 2px;
 }
 
@@ -83,12 +80,9 @@ header {
 .main {
   margin: 0 auto;
   position: absolute;
-  z-index: 1;
-<<<<<<< HEAD
+  z-index: 30;
   height: 120%;
-=======
   height: 100%;
->>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
   width: 100%;
   /* padding-top: 0px;
     margin-top: 0px; */
@@ -96,10 +90,6 @@ header {
   background-size: cover;
 }
 
-/* .display-results-container {
-    margin:0 auto;
-    width:60%;
-} */
 h1 {
   color: #9081fa;
   font-size: 2.7rem;
@@ -109,27 +99,19 @@ h1 {
 
 #map {
   position: absolute;
-<<<<<<< HEAD
   z-index: 0;
   top:50px;
   left:0;
-=======
-  margin-top: 50px;
   z-index: 0;
   width: 100%;
   height: 40%;
   display: none;
->>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
   width: 67%;
   height: 100%;
 }
 
 .search-section {
-<<<<<<< HEAD
   position: relative;
-=======
-  /* position: relative; */
->>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
   display: inline-block;
   z-index: 1;
   width: 325px;
@@ -163,7 +145,6 @@ label {
 }
 
 input {
-  /* margin-top: 10px; */
   width: 100%;
   height: 40px;
   border-radius: 2px;
@@ -182,15 +163,13 @@ input[type="text"] {
   z-index: 6;
   color: grey;
 }
-
 .search-button {
   margin: 12px;
   padding: 12px 15px 10px;
-  background: #8174d2;
+  background: #8174d2;/* fallback color */
   background: rgba(129, 116, 210, .85);
   color: #f1efe9;
   text-transform: uppercase;
-  /* font-weight: bold; */
   border-radius: 2%;
   cursor: pointer;
   border: none;
@@ -198,7 +177,7 @@ input[type="text"] {
 
 /* Most modern browsers support this now. */
 ::placeholder {
-  color: rgba(144, 129, 250, .3);
+  color: rgba(144, 129, 250, .5);
   font-size: .9rem
 }
 
@@ -211,49 +190,33 @@ input[type="text"] {
   color: #9081fa;
   opacity: 0.9;
   transition: color 0.3s;
-  transition: color 0.3s;
 }
 
-.search-button:active {}
-
-<<<<<<< HEAD
-.search-button:active,
-.new-search-button:active {
-    transform: translateY(1px);
-}
-=======
-/* .search-button:active,
-.new-search-button:active {
-    transform: translateY(1px);
-} */
->>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
 .search-results {
   font-family: 'Lato', sans-serif;
+  font-size: 1rem;
   position: relative;
   display: inline-block;
-  margin-top: 50px;
+  top: 50px;
   padding-right: 3px;
   z-index: 0;
   height: 100%;
   color: #222;
   background: #f1efe9;
   border: 1px solid gray;
+  border-top: none;/* no border on top */
   width: 33%;
   overflow: auto;
   float: right;
 }
 
 .search-results li {
-  padding: 5px 0 0 10px;
+  padding: 10px 0 0 10px;
   border-bottom: 1px gray solid;
   list-style: none;
   text-align: left;
   line-height: 22px;
-<<<<<<< HEAD
-  /* overflow: auto; */
-=======
   overflow: auto;
->>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
 }
 
 .thumbnail-40 {
@@ -264,19 +227,13 @@ input[type="text"] {
 
 .thumbnail-40 img {
   width: 100%;
-<<<<<<< HEAD
-=======
-  height: 40px;
->>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
-  padding: 3px;
-  border: 1px #ccc solid;
+  border:1px solid lightgrey;
 }
-
-/* .list-right {
-    display: inline-block;
-    width: 78%;
-    padding: 3px;
-} */
+.displayed-result {
+  /* display: inline-block; */
+  width: 100%;
+  padding: 3px;
+}
 .hidden {
   display: none;
 }
@@ -285,19 +242,10 @@ input[type="text"] {
   position: fixed;
   width: 100%;
   height: 100%;
-  z-index: 2;
+  z-index: 32;
   background: url('images/pre-loader2.gif') 50% 50% no-repeat rgba(4, 0, 8, .4);
 }
 
-/* #mag-icon {
-  position: relative;
-   z-index: 1;
-   left: -25px;
-   top: 1px;
-   color: #7B7B7B;
-   cursor:pointer;
-   width: 0;
-} */
 footer {
   position: absolute;
   margin-top: 130px;
@@ -308,62 +256,60 @@ footer {
   line-height: 20px;
 }
 
-<<<<<<< HEAD
 @media only screen and (orientation: landscape) {
   .main {
     height: 170%;
   }
 }
 
-@media only screen and (max-width:640px) {
-=======
-@media only screen and (max-width: 40em) {
-  /* h1 {
-    font-size: 3.3rem;
-  }
-
-  .logo {
-    width: 60%;
-  } */
->>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
-
-  .new-search-button {
-    margin-right: 10px;
-  }
+@media only screen and (max-width: 768px) {
 
   #map {
-<<<<<<< HEAD
-    display: none;
-    padding-top: 0px;
-    margin-top: 0;
-    z-index: 1;
-    width: 100%;
-    height: 30%;
-=======
-    padding-top: 0px;
-    margin-top: 0;
-    z-index: -1;
-    width: 100%;
-    height: 40%;
->>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
-    position: static;
+    width:45%;
   }
+  .search-results {
+    width: 55%;
+    height: 100%;
+    top: 50px;
+    z-index: 20;
+    font-size: .9rem;
+  }
+}
 
+@media only screen and (max-width: 640px) {
+  #map {
+    display: none;
+  }
   .search-results {
     width: 100%;
     height: 100%;
-<<<<<<< HEAD
-    /* display: none; */
-    margin-top: 0;
-    position: static;
-
+    top: 50px;
+    z-index: 20;
+    font-size: .8rem;
+    line-height: 20px;
   }
   .search-results li {
-    margin-top: 50px;
-=======
-    display: none;
-    margin-top: 0;
-    position: static;
->>>>>>> c304c580655d7819c17a784f04c7b7f608a0b02a
+    padding: 10px 0 0 10px;
+    border-bottom: 1px gray solid;
+    list-style: none;
+    text-align: left;
+    line-height: 19px;
+    overflow: auto;
+}
+  .new-search-button {
+    margin-right: 10px;
+  }
+  /* .thumbnail-40 {
+    display: inline-block;
+    width: 96px;
+}
+  .thumbnail-40 img {
+    width: 100%;
+    border:1px solid lightgrey;
+  }*/
+ .displayed-result {
+    display: inline-block;
+    width: 75%;
+    padding: 3px;
   }
 }
