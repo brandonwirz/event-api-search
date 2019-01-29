@@ -1,6 +1,6 @@
 let map;
 const API_URL = "https://api.eventful.com/json/events/search";
-const API_KEY = "C9bx5dgQqBb7RZsr";
+const API_KEY = "";
 
 function initMap() {
     const latlng = new google.maps.LatLng(40.014984, -105.270546);
