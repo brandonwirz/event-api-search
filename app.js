@@ -152,7 +152,6 @@ function newMarker(latlng, title, venueName, venueAddress, postalCode, descripti
             infoWindow.close();
         }
     });
-
     google.maps.event.addListener(marker, "click", function(e) {
         clicked = true;
         const popUpContent = `<div><strong>${title}</strong><br><a href="${venueURL}"><strong>@${venueName}</strong></a><br><a href="http://maps.google.com/?q=${venueAddress}">${venueAddress}</a><br>${description}</div>`;
