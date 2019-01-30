@@ -1,213 +1,324 @@
-let map;
-const API_URL = "https://api.eventful.com/json/events/search";
-const API_KEY = "C9bx5dgQqBb7RZsr";
+@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One|Russo+One');
+@import url('https://fonts.googleapis.com/css?family=Lato:300i,400,400i,700');
 
-function initMap() {
-    const latlng = new google.maps.LatLng(40.014984, -105.270546);
-    const mapOptions = {
-        zoom: 0,
-        center: latlng
-    }
-    map = new google.maps.Map(document.getElementById('map'), mapOptions);
+* {
+  box-sizing: border-box;
 }
 
-//show search results
-function eventSearch() {
-    $('.search-results').html(''); // Clear Results
-    $('#map').html('');
-    $('.display-results-container').show();
-    $('.search-results').show();
-    $('.search-section').hide("fast", "swing");
-    $('.top-banner').show();
-    $('.new-search-button').show();
-    $('.logo').show();
-  // });
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
-// Get Data From Eventful API
-function getApiData() {
-  // Get Form Input
-  const location = $('#city-search').val();
-    if (location.length === 0 ) {
-         alert("Please enter a location to search for events");
-         return false
-    } else {
-      $(".pre-loader").show();
-      //search results
-      eventSearch()
-      // GET Request for API
-      $.ajax({
-          url: API_URL,
-          type: "GET",
-          data: {
-              app_key: API_KEY,
-              q: "music",
-              l: location,
-              t: "Today",
-              page_size: 30,
-              sort_order: "popularity",
-              c: "music, concerts, nightlife, blues, jazz" //categories
-          },
-          crossDomain: true,
-          dataType: 'jsonp'
-       }).then(function(data) {
-            $(".pre-loader").hide("fast");
-            $('.main').hide("fast");
-            initializeMap(data);
-                for (let i = 0; i < data.events.event.length; i++) {
-                // Get Output
-                const output = showResults(data.events.event[i]);
-                // Display Results
-                $('.search-results').append(output);
-            }
-        });
-    }//end if statement
+
+body {
+  padding-top: 0;
+  text-align: center;
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+.pre-loader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 32;
+  background: url('images/pre-loader2.gif') 50% 50% no-repeat rgba(4, 0, 8, .4);
+}
+
+header {
+  height: auto;
+  margin-top: 0px;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  border-bottom: 1px solid gray;
+}
+
+.top-banner {
+  position: absolute;
+  z-index: 1;
+  height: 50px;
+  width: 100%;
+  background: url('images/guitar-background.jpg') no-repeat center fixed;
+  background-size: cover;
+  margin: 0 auto;
+}
+
+.branding {
+  display: inline-block;
+  height: 100%;
+  float: left;
+  margin-left: 20px;
+  margin-top: 6px;
+  padding-bottom: 10px;
+  padding-top: 5px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: white;
+  text-shadow: 2px 2px black;
+}
+
+.new-search-button {
+  float: right;
+  margin-right: 25px;
+  margin-top: 6px;
+  height: 77%;
+  background-color: white;
+  border-radius: 2px;
+}
+
+.container {
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+  background: white;
+}
+/* main background image  */
+.main {
+  margin: 0 auto;
+  position: absolute;
+  z-index: 30;
+  height: 100%;
+  width: 100%;
+  background: url('images/guitar-background.jpg') no-repeat center fixed;
+  background-size: cover;
+}
+
+h1 {
+  color: #9081fa;
+  font-size: 2.7rem;
+  margin: 0;
+  padding-top: 50px;
+}
+
+#map {
+  position: absolute;
+  top:50px;
+  left:0;
+  z-index: 0;
+  display: none;
+  width: 67%;
+  height: 100%;
+}
+
+.search-section {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+  width: 325px;
+  height: auto;
+  margin: 0% auto 0;
+  padding: 10px;
+  color: #003775;
+  border-radius: 10px;
+}
+
+h2 {
+  font-size: 1.2rem;
+  color: #f5efd7;
+  font-family: 'Julius Sans One', sans-serif;
+  line-height: 22px;
+  text-align: center;
+  margin: 15px auto 0;
+  width: 80%;
+}
+
+.search-form {
+  margin: 0 auto;
+  position: relative;
+  margin-top: 5px;
+}
+
+label {
+  display: block;
+  margin-bottom: 0px;
+  font-size: 1.2rem
+}
+
+input {
+  width: 100%;
+  height: 40px;
+  border-radius: 2px;
+  border: 1px solid #003775;
+}
+
+input[type="text"] {
+  padding: 10px 0 0 8px;
+  opacity: .85;
+}
+/* magnifying search icon */
+.fa-search {
+  position: absolute;
+  top: 32px;
+  right: 12px;
+  z-index: 6;
+  color: grey;
+}
+.search-button {
+  margin: 12px;
+  padding: 12px 15px 10px;
+  background: #8174d2;/* fallback color */
+  background: rgba(129, 116, 210, .85);
+  color: #f1efe9;
+  text-transform: uppercase;
+  border-radius: 2%;
+  cursor: pointer;
+  border: none;
+}
+
+/* placeholder text for search field */
+::placeholder {
+  color: rgba(144, 129, 250, .5);
+  font-size: .9rem
+}
+
+.logo {
+  width: 50%;
+}
+
+.search-button:hover,
+.new-search-button:hover {
+  color: #9081fa;
+  opacity: 0.9;
+  transition: color 0.3s;
+}
+
+.search-results {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  position: relative;
+  display: inline-block;
+  top: 50px;
+  padding-right: 3px;
+  z-index: 0;
+  width: 33%;
+  height: 100%;
+  color: #222;
+  background: #f1efe9;
+  border: 1px solid gray;
+  border-top: none;/* no border on top */
+  overflow: auto;
+  float: right;
+}
+
+.search-results li {
+  padding: 10px 0 0 10px;
+  border-bottom: 1px gray solid;
+  list-style: none;
+  text-align: left;
+  line-height: 22px;
+  overflow: auto;
+}
+
+p {
+   margin: 0px 0px 5px 0px;
+}
+
+li p a:link{color: #db1d0f;}
+li p a:visited, li p a:active {color: #334c9d;}
+li p a:hover {color: #5976d5;}
+
+.thumbnail-40 {
+  display: inline-block;
+  width: 30%;
+  height: 100%;
+}
+
+.thumbnail-40 img {
+  width: 100%;
+  border:1px solid lightgrey;
+}
+.displayed-result {
+  /* display: inline-block; */
+  width: 100%;
+  padding: 3px;
+}
+.hidden {
+  display: none;
+}
+
+footer {
+  position: absolute;
+  margin-top: 130px;
+  font-size: .9em;
+  color: #c9c5e6;
+  left: 10%;
+  right: 10%;
+  line-height: 20px;
+}
+
+@media only screen and (orientation: landscape) {
+  .main {
+    height: 170%;
   }
-
-//format and convert time from 24hr to 12/ display date
-//'MMMM Do YYYY, h:mm:ss a');
-function timeConverter(time) {
-  return moment(time).format('MMMM Do YYYY, h:mm a');
 }
 
-//Build Output
-function showResults(item) {
-    let eventID = item.id;
-    let title = item.title;
-    let eventURL = item.url;
-    let urlImage = item.image ? item.image.medium.url : '';
-    // let urlImage = item.image.medium.url;
-    let description = item.description;
-    let eventStart = timeConverter(item.start_time);
-    let venueName = item.venue_name;
-    let venueAddress = item.venue_address + ", " + "<br>" + item.city_name + " " + item.region_abbr;
-    let venueURL = item.venue_url;
-    let eventLat = item.latitude;
-    let eventLng = item.longitude;
-
-   const output = `
-      <li>
-        <div class="thumbnail-40">
-          <img src="${urlImage}" alt="${title}">
-        </div>
-        <div class="displayed-result">
-          <p>
-            <strong>Event: </strong>
-            <a href="${eventURL}" target="_blank">${title}</a>
-            <br>
-            <strong>Venue: </strong>
-            ${venueName}
-            <br>
-            <strong>Address</strong>
-            <a href="http://maps.google.com/?q=${venueAddress}" target="_blank">${venueAddress}</a>
-            <br>
-            <strong>Date/Time: </strong>
-            ${eventStart}
-          </p>
-        </div>
-      </li>
-    <div class="clearfix"></div>`;
- return output;
+@media only screen and (max-width: 48em) {
+  #map {
+    position: relative;
+    width:100%;
+    height:40%;
+  }
+  .search-results {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: 50px;
+    z-index: 20;
+    border-top: 1px gray solid;
+    font-size: .9rem;
+  }
+  .search-results li {
+    border-bottom: 1px gray solid;
+  }
+  .displayed-result {
+     display: inline-block;
+     width: 70%;
+     padding: 3px;
+   }
+   .thumbnail-40 {
+     display: inline-block;
+     width: 85%;
+ }
+   .thumbnail-40 img {
+     width: 25%;
+     border:1px solid lightgrey;
+   }
 }
 
-function displayMapMarkers(data) {
-    let markersData = data.events.event;
-    let bounds = new google.maps.LatLngBounds();
-    for (let i = 0; i < markersData.length; i++) {
-        let venueURL = markersData[i].venue_url;
-        let eventLat = markersData[i].latitude;
-        let eventLng = markersData[i].longitude;
-        let description = markersData[i].description;
-        let eventStart = timeConverter(markersData[i].start_time);
-        let venueName = markersData[i].venue_name;
-        let postalCode = markersData[i].postal_code;
-        let latlng = new google.maps.LatLng(markersData[i].latitude, markersData[i].longitude);
-        let title = markersData[i].title;
-        let venueAddress = markersData[i].venue_address + ", " + markersData[i].city_name + " " + markersData[i].region_abbr;
-        newMarker(latlng, title, venueName, venueAddress, postalCode, description, venueURL);
-
-        bounds.extend(latlng);
-    }
-    map.fitBounds(bounds);
+@media only screen and (max-width: 40em) {
+  .search-results {
+    width: 100%;
+    height: 100%;
+    top: 50px;
+    z-index: 20;
+    font-size: .85rem;
+    line-height: 20px;
+  }
+  .search-results li {
+    padding: 10px 0 0 10px;
+    border-bottom: 1px gray solid;
+    list-style: none;
+    text-align: left;
+    line-height: 19px;
+    overflow: auto;
 }
-
-function newMarker(latlng, title, venueName, venueAddress, postalCode, description, venueURL) {
-    const marker = new google.maps.Marker({
-        map: map,
-        position: latlng,
-        title: title,
-        animation: google.maps.Animation.DROP
-    });
-
-    const clicked = false;
-
-    google.maps.event.addListener(marker, "mouseover", function(e) {
-        if (!clicked) {
-            const popUpContent = `<div><strong>${title}</strong><br><strong>@${venueName}</strong><br>${venueAddress} ${postalCode}</div>`;
-            infoWindow.setContent(popUpContent);
-            infoWindow.open(map, marker);
-        }
-    });
-    google.maps.event.addListener(marker, "mouseout", function(e) {
-        if (!clicked) {
-            infoWindow.close();
-        }
-    });
-
-    google.maps.event.addListener(marker, "click", function(e) {
-        clicked = true;
-        const popUpContent = `<div><strong>${title}</strong><br><a href="${venueURL}"><strong>@${venueName}</strong></a><br><a href="http://maps.google.com/?q=${venueAddress}">${venueAddress}</a><br>${description}</div>`;
-        infoWindow.setContent(popUpContent);
-        infoWindow.open(map, marker);
-    });
-    google.maps.event.addListener(infoWindow, 'closeclick', function(e) {
-        clicked = false;
-    })
+  .new-search-button {
+    margin-right: 10px;
+  }
+  .thumbnail-40 {
+    display: inline-block;
+    width: 96px;
+    width: 75%;
 }
-
-function initializeMap(data) {
-    const mapOptions = {
-        center: new google.maps.LatLng(40.014984, -105.270546),
-        zoom: 9,
-        mapTypeId: 'roadmap',
-    };
-
-    map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-    infoWindow = new google.maps.InfoWindow();
-
-    google.maps.event.addListener(map, 'click', function() {
-      infoWindow.close();
-    });
-    displayMapMarkers(data);
+  .thumbnail-40 img {
+    width: 25%;
+    border:1px solid lightgrey;
+  }
+ .displayed-result {
+    display: inline-block;
+    width: 100%;
+    padding: 3px;
+  }
 }
-
-// Show/Hide Search Form
-function eventSearchTwo() {
-    // console.log(eventSearchTwo)
-    $('.new-search-button-2').on('click', function() {
-        $('.search-results').html(''); // Clear Results
-        $('.display-results-container').hide();
-        $('.new-search-button').hide();
-        $('.search-section').show();
-        $('.main').show();
-    });
-}
-
-function showMap() {
-    $('.search-button').on('click', function() {
-        $('#map').show();
-    });
-}
-
-$('document').ready(function() {
-    $(window).load(function() {
-        $(".pre-loader").fadeOut("slow");
-    })
-    $('.search-button').on('click', function(e) {
-        e.preventDefault();
-        getApiData();
-    })
-    showMap();
-    eventSearchTwo();
-})
-
