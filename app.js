@@ -1,6 +1,6 @@
 let map;
 const API_URL = "https://api.eventful.com/json/events/search";
-const API_KEY = "";
+const API_KEY = "C9bx5dgQqBb7RZsr";
 
 function initMap() {
     const latlng = new google.maps.LatLng(40.014984, -105.270546);
@@ -13,10 +13,6 @@ function initMap() {
 
 //show search results
 function eventSearch() {
-<<<<<<< HEAD
-=======
-  // $('.search-button').on('click', function() {
->>>>>>> 2acb8f83410f0be82d9f4c0dc6e5a0bf4dc7569c
     $('.search-results').html(''); // Clear Results
     $('#map').html('');
     $('.display-results-container').show();
@@ -49,11 +45,7 @@ function getApiData() {
               t: "Today",
               page_size: 30,
               sort_order: "popularity",
-<<<<<<< HEAD
               c: "music, concerts, nightlife, blues, jazz" //categories
-=======
-              c: "music, concerts, nightlife" //categories
->>>>>>> 2acb8f83410f0be82d9f4c0dc6e5a0bf4dc7569c
           },
           crossDomain: true,
           dataType: 'jsonp'
@@ -74,7 +66,7 @@ function getApiData() {
 //format and convert time from 24hr to 12/ display date
 //'MMMM Do YYYY, h:mm:ss a');
 function timeConverter(time) {
-  return moment(time).format('MMMM Do YYYY, h:mm');
+  return moment(time).format('MMMM Do YYYY, h:mm a');
 }
 
 //Build Output
@@ -160,6 +152,7 @@ function newMarker(latlng, title, venueName, venueAddress, postalCode, descripti
             infoWindow.close();
         }
     });
+
     google.maps.event.addListener(marker, "click", function(e) {
         clicked = true;
         const popUpContent = `<div><strong>${title}</strong><br><a href="${venueURL}"><strong>@${venueName}</strong></a><br><a href="http://maps.google.com/?q=${venueAddress}">${venueAddress}</a><br>${description}</div>`;
@@ -189,16 +182,10 @@ function initializeMap(data) {
 }
 
 // Show/Hide Search Form
-<<<<<<< HEAD
 function eventSearchTwo() {
     // console.log(eventSearchTwo)
     $('.new-search-button-2').on('click', function() {
         $('.search-results').html(''); // Clear Results
-=======
-function eventSearchToggle() {
-    // console.log(eventSearchToggle)
-    $('.new-search-button-2').on('click', function() {
->>>>>>> 2acb8f83410f0be82d9f4c0dc6e5a0bf4dc7569c
         $('.display-results-container').hide();
         $('.new-search-button').hide();
         $('.search-section').show();
