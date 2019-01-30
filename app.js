@@ -1,6 +1,6 @@
 let map;
 const API_URL = "https://api.eventful.com/json/events/search";
-const API_KEY = "C9bx5dgQqBb7RZsr";
+const API_KEY = "";
 
 function initMap() {
     const latlng = new google.maps.LatLng(40.014984, -105.270546);
@@ -13,6 +13,10 @@ function initMap() {
 
 //show search results
 function eventSearch() {
+<<<<<<< HEAD
+=======
+  // $('.search-button').on('click', function() {
+>>>>>>> 2acb8f83410f0be82d9f4c0dc6e5a0bf4dc7569c
     $('.search-results').html(''); // Clear Results
     $('#map').html('');
     $('.display-results-container').show();
@@ -45,7 +49,11 @@ function getApiData() {
               t: "Today",
               page_size: 30,
               sort_order: "popularity",
+<<<<<<< HEAD
               c: "music, concerts, nightlife, blues, jazz" //categories
+=======
+              c: "music, concerts, nightlife" //categories
+>>>>>>> 2acb8f83410f0be82d9f4c0dc6e5a0bf4dc7569c
           },
           crossDomain: true,
           dataType: 'jsonp'
@@ -181,10 +189,16 @@ function initializeMap(data) {
 }
 
 // Show/Hide Search Form
+<<<<<<< HEAD
 function eventSearchTwo() {
     // console.log(eventSearchTwo)
     $('.new-search-button-2').on('click', function() {
         $('.search-results').html(''); // Clear Results
+=======
+function eventSearchToggle() {
+    // console.log(eventSearchToggle)
+    $('.new-search-button-2').on('click', function() {
+>>>>>>> 2acb8f83410f0be82d9f4c0dc6e5a0bf4dc7569c
         $('.display-results-container').hide();
         $('.new-search-button').hide();
         $('.search-section').show();
