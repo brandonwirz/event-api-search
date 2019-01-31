@@ -1,6 +1,6 @@
 Event Finder App
 
-![Screenshot](http://wirzdesign.com/guitar-background.jpg)
+
 
 Search for local music events and nightlife using
 Eventful and Google Maps APIs.
