@@ -8,7 +8,7 @@ HTML5
 CSS3
 JavaScript
 jQuery
-Google Map API
+Google Maps API
 Eventful API
 Photoshop
 
