@@ -39,7 +39,7 @@ header {
   z-index: 1;
   height: 50px;
   width: 100%;
-  background: url('images/guitar-background.jpg') no-repeat center fixed;
+  background: url('http://wirzdesign.com/guitar-background.jpg') no-repeat center fixed;
   background-size: cover;
   margin: 0 auto;
 }
@@ -81,7 +81,7 @@ header {
   z-index: 30;
   height: 100%;
   width: 100%;
-  background: url('images/guitar-background.jpg') no-repeat center fixed;
+  background: url('http://wirzdesign.com/guitar-background.jpg') no-repeat center fixed;
   background-size: cover;
 }
 
@@ -114,13 +114,13 @@ h1 {
   border-radius: 10px;
 }
 
-h2 {
+legend {
   font-size: 1.2rem;
   color: #f5efd7;
   font-family: 'Julius Sans One', sans-serif;
   line-height: 22px;
   text-align: center;
-  margin: 15px auto 0;
+  margin: 15px auto 20px;
   width: 80%;
 }
 
@@ -130,10 +130,23 @@ h2 {
   margin-top: 5px;
 }
 
-label {
+/* label {
   display: block;
   margin-bottom: 0px;
-  font-size: 1.2rem
+  font-size: 1.2rem;
+  z-index: 50;
+  color: white;
+
+} */
+.label-visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
 input {
@@ -150,14 +163,14 @@ input[type="text"] {
 /* magnifying search icon */
 .fa-search {
   position: absolute;
-  top: 32px;
+  margin-top: 13px;
   right: 12px;
   z-index: 6;
   color: grey;
 }
 .search-button {
   margin: 12px;
-  padding: 12px 15px 10px;
+  padding: 15px 15px 10px;
   background: #8174d2;/* fallback color */
   background: rgba(129, 116, 210, .85);
   color: #f1efe9;
@@ -179,7 +192,7 @@ input[type="text"] {
 
 .search-button:hover,
 .new-search-button:hover {
-  color: #9081fa;
+  color: #9f98d6;
   opacity: 0.9;
   transition: color 0.3s;
 }
