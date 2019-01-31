@@ -11,6 +11,14 @@ function initMap() {
     map = new google.maps.Map(document.getElementById('map'), mapOptions);
 }
 
+$('input[type="text"]').focus();
+//This changes the placeholder value showing users
+//examples of what they can search
+const inputSearch = ["Denver", "Portland", "San Francisco", "Austin", "Cleveland", "Boston", "Ney York", "Los Angeles", "Seattle", "Nashville", "St Louis", "Boulder", "Tacoma", "Miami", "Chicago", "Columbus", "Detroit", "Atlanta", "Las Vegas"];
+setInterval(function() {
+    $("input[type='text']").attr("placeholder", inputSearch[inputSearch.push(inputSearch.shift())-1]);
+}, 4000);
+
 //show search results
 function eventSearch() {
     $('.search-results').html(''); // Clear Results
