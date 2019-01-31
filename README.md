@@ -1,7 +1,7 @@
 Event Finder App
 
 Search for local music events and nightlife using
-Eventful and Google Map APIs.
+Eventful and Google Maps APIs.
 
 Technologies used:
 HTML5
