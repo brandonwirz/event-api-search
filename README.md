@@ -1,9 +1,10 @@
 Event Finder App
 
 ![Screenshot](event-api-search-desktop.png)
+Desktop view
+
 ![Screenshot](event-api-search-phone.png)
-
-
+Mobile view
 
 Search for local music events and nightlife using
 Eventful and Google Maps APIs.
